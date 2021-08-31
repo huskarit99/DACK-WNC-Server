@@ -51,12 +51,12 @@ router.post("/user", async (req, res) => {
 router.post("/confirmation/:token", async (req, res) => {
   const token = req.params.token;
   await userService.confirmEmail(token);
-  return res.redirect("http://localhost:3000/login");
+  return res.redirect("https://academy-web-client.netlify.app/login");
 });
 
 router.delete("/refresh-token", auth(), async (req, res) => {
-  res.clearCookie("refresh_token");
-  res.clearCookie("access_token");
+  res.clearCookie("refresh_token", { path: "/" });
+  res.clearCookie("access_token", { path: "/" });
   res.status(httpStatusCode.SUCCESS.NO_CONTENT).end();
 });
 
