@@ -24,7 +24,7 @@ mongoose.connect(process.env.URL_DATABASE, {
 });
 
 var corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "https://academy-web-client.netlify.app"],
   credentials: true,
 };
 
